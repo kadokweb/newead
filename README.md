@@ -12,7 +12,10 @@ git clone https://github.com/kadokweb/newead.git app-newead
 Acesse a pasta
 ```sh
 cd app-newead
-
+```
+Abra o seu editor- EX: Visual Studio Code
+```sh
+code .
 ```
 Crie o Arquivo .env
 ```sh
