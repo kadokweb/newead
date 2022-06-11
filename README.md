@@ -13,7 +13,7 @@ Acesse a pasta
 ```sh
 cd app-newead
 ```
-Abra o seu editor- EX: Visual Studio Code
+Abra o projeto no seu editor - EX: Visual Studio Code
 ```sh
 code .
 ```
