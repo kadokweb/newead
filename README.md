@@ -5,13 +5,13 @@
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone https://github.com/kadokweb/newead.git
+git clone https://github.com/kadokweb/newead.git app-newead
 ```
 
 
-Crie o Arquivo .env
+Acesse a pasta
 ```sh
-cd newead
+cd app-newead
 
 ```
 Crie o Arquivo .env
