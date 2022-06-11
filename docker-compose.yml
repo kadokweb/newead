@@ -1,0 +1,73 @@
+version: "3.7"
+
+services:
+    # image project
+    app:
+        container_name: newead-laravel-9
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: newead/laravel9-app
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - redis
+        networks:
+            - kadokead
+
+    # nginx
+    nginx:
+        container_name: newead-nginx
+        image: nginx:alpine
+        restart: unless-stopped
+        ports:
+            - "8081:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/:/etc/nginx/conf.d/
+        networks:
+            - kadokead
+
+    # db mysql
+    mysql:
+        container_name: newead-mysql
+        image: mysql:5.7.22
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_USER: ${DB_USERNAME}
+        volumes:
+            - ./.docker/mysql/dbdata:/var/lib/mysql
+        ports:
+            - "3381:3306"
+        networks:
+            - kadokead
+
+    # queue
+    queue:
+        container_name: newead-queue
+        image: newead/laravel9-app
+        restart: unless-stopped
+        command: "php artisan queue:work"
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - redis
+            - app
+        networks:
+            - kadokead
+
+    # redis
+    redis:
+        container_name: newead-redis
+        image: redis:latest
+        networks:
+            - kadokead
+
+networks:
+    kadokead:
+        driver: bridge
