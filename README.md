@@ -1,29 +1,19 @@
 
-# Setup Docker Para Projetos Laravel (8 ou 9)
+# Projetos API - Laravel 9 com php8  (8 ou 9)
 
 
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone https://github.com/kadokweb/setup-docker-laravel9.git
+git clone https://github.com/kadokweb/newead.git
 ```
 
-Clone os Arquivos do Laravel
+
+Crie o Arquivo .env
 ```sh
-git clone https://github.com/laravel/laravel.git app-laravel
-```
-
-
-Copie os arquivos docker-compose.yml, Dockerfile e o diretório docker/ para o seu projeto
-```sh
-cp -rf setup-docker-laravel9/* app-laravel/
+cd newead
 
 ```
-```sh
-cd app-laravel/
-```
-
-
 Crie o Arquivo .env
 ```sh
 cp .env.example .env
