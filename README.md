@@ -1,5 +1,5 @@
 
-# Projetos API - Laravel 9 com php8  (8 ou 9)
+# Projetos API - Laravel 9 com php 8
 
 
 ### Passo a passo
