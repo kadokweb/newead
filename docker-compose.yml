@@ -23,7 +23,7 @@ services:
         image: nginx:alpine
         restart: unless-stopped
         ports:
-            - "8081:80"
+            - "8989:80"
         volumes:
             - ./:/var/www
             - ./docker/nginx/:/etc/nginx/conf.d/
@@ -43,7 +43,7 @@ services:
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
-            - "3381:3306"
+            - "3390:3306"
         networks:
             - kadokead
 
