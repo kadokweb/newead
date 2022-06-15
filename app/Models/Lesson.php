@@ -14,8 +14,8 @@ class Lesson extends Model
     protected $keyType = 'uuid';
     protected $fillabel = ['name', 'description', 'video'];
 
-    public function modules()
+    public function supports()
     {
-        return $this->hasMany(Lesson::class);
+        return $this->hasMany(Support::class);
     }
 }
